@@ -1,0 +1,100 @@
+<div ng-controller="uploadQueueController">
+
+	<table class="table table-bordered">
+
+		<thead>
+			<tr>
+				<td colspan="7" align="right">
+					<button type="button" class="btn btn-primary">
+						<a href="#showStudents" id="upld"><i class="fa fa-check"
+							aria-hidden="true"></i>&nbsp; View Students</a>
+					</button>
+				</td>
+			</tr>
+			<tr ng-show="files.length > 0">
+				<th># Id</th>
+				<th>First Name</th>
+				<th>Last Name</th>
+				<th>Course</th>
+				<th>Email</th>
+				<th>Status</th>
+				<th>Update Status</th>
+			</tr>
+		</thead>
+		<tbody>
+			<div ng-show="files.length == 0">No Records Found.</div>
+
+			<div ng-show="files.length > 0">
+				<tr ng-repeat="file in files">
+					<td>{{file.id}}</td>
+					<td>{{file.firstName}}</td>
+					<td>{{file.lastName}}</td>
+					<td>{{file.course}}</td>
+					<td>{{file.email}}</td>
+					<td><p class="text-danger">Pending</p></td>
+					<td>
+						<button type="button" class="btn btn-warning" data-toggle="modal"
+							class="stdRecord" data-target="#myModal"
+							ng-click="clkStudent(file)">
+							<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+						</button>
+						<button type="button" class="btn btn-danger"
+							ng-click="deleteStudent(file)">
+							<i class="fa fa-trash-o" aria-hidden="true"></i>
+						</button>
+					</td>
+				</tr>
+			</div>
+		</tbody>
+
+	</table>
+
+
+	<!-- Modal -->
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+		aria-labelledby="myModalLabel">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<h4 class="modal-title" id="myModalLabel">Update Student
+						Status</h4>
+				</div>
+				<div class="modal-body">
+					<form class="form-horizontal" ng-submit="updateStatus()">
+
+						<div class="form-group">
+							<label for="inputEmail3" class="col-sm-3 control-label">Student
+								Id</label>
+							<div class="col-sm-7">
+								<input type="text" class="form-control"
+									ng-model="currentStudent.id" readonly="readonly">
+
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="inputEmail3" class="col-sm-3 control-label">Change
+								Status</label>
+							<div class="col-sm-7">
+								<select class="form-control">
+									<option>Accept</option>
+								</select>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<div class="col-sm-offset-3 col-sm-7">
+								<button type="submit" ng-click="updateStatus(currentStudent)"
+									class="btn btn-primary">Update Status</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

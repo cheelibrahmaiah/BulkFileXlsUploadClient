@@ -1,0 +1,36 @@
+<div ng-controller="homeController as ctrl">
+	Welcome <b>{{currentUser}}</b>
+	<hr>
+	<table class="table table-bordered">
+		<thead>
+			<tr>
+				<td align="right" colspan="5">
+					<!-- Button trigger modal -->
+					<button type="button" class="btn btn-primary">
+						<a href="#/upload" id="upld"><i class="fa fa-plus"
+							aria-hidden="true"></i>&nbsp; Upload Here</a>
+					</button>
+				</td>
+			</tr>
+			<tr ng-show="files.length > 0">
+				<th>File Id</th>
+				<th>File Name</th>
+				<th>Records Uploaded</th>
+				<th>Date</th>
+				<th>Uploaded By</th>
+			</tr>
+		</thead>
+		<tbody>
+			<div ng-show="files.length > 0">
+				<tr ng-repeat="file in files">
+					<td>{{file.file_id}}</td>
+					<td>{{file.file_name}}</td>
+					<td>{{file.records}}</td>
+					<td>{{file.date}}</td>
+					<td>{{file.uplaodBy}}</td>
+				</tr>
+			</div>
+		</tbody>
+
+	</table>
+</div>

@@ -1,0 +1,43 @@
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<h3 class="panel-title">Login here</h3>
+	</div>
+	<div class="panel-body">
+		<form class="form-horizontal" ng-controller="regValidateCtrl"
+			name="myForm" novalidate>
+			<div class="form-group"
+				ng-class="{ 'has-error' : myForm.name.$invalid && !myForm.name.$pristine }">
+				<label for="inputEmail3" class="col-sm-3 control-label">User
+					name</label>
+				<div class="col-sm-7">
+					<input type="text" name="name" ng-model="user.username"
+						class="form-control" id="inputEmail3" placeholder="Username"
+						required>
+					<p class="help-block"
+						ng-show="myForm.name.$dirty && myForm.name.$error.required && !myForm.name.$pristine">Username
+						is required</p>
+				</div>
+			</div>
+			<div class="form-group"
+				ng-class="{ 'has-error' : myForm.pwd.$invalid && !myForm.pwd.$pristine }">
+				<label for="inputPassword3" class="col-sm-3 control-label">Password</label>
+				<div class="col-sm-7">
+					<input type="password" name="pwd" ng-model="user.password"
+						class="form-control" id="inputPassword3" placeholder="Password"
+						required>
+					<p class="help-block"
+						ng-show="myForm.pwd.$dirty && myForm.pwd.$error.required && !myForm.pwd.$pristine">Password
+						is required</p>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<div class="col-sm-offset-3 col-sm-7">
+					<button type="submit" ng-disabled="!myForm.$valid"
+						ng-click="validateUserCreds()" class="btn btn-primary">Login</button>
+					<button type="reset" class="btn btn-default">Reset</button>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>

@@ -1,0 +1,39 @@
+<div ng-controller="showStudentsController">
+
+	<table class="table table-bordered">
+
+		<thead>
+			
+			<tr ng-show="files.length > 0">
+				<th># Id</th>
+				<th>First Name</th>
+				<th>Last Name</th>
+				<th>Course</th>
+				<th>Email</th>
+				<th>Status</th>
+				<th>Delete</th>
+			</tr>
+		</thead>
+		<tbody>
+			<div ng-show="files.length == 0">No Records Found.</div>
+
+			<div ng-show="files.length > 0">
+				<tr ng-repeat="file in files">
+					<td>{{file.id}}</td>
+					<td>{{file.firstName}}</td>
+					<td>{{file.lastName}}</td>
+					<td>{{file.course}}</td>
+					<td>{{file.email}}</td>
+					<td><p class="text-success">Accepted.</p></td>
+					<td>						
+						<button type="button" class="btn btn-danger"
+							ng-click="deleteStudent(file)">
+							<i class="fa fa-trash-o" aria-hidden="true">&nbsp; Delete</i>
+						</button>
+					</td>
+				</tr>
+			</div>
+		</tbody>
+
+	</table>
+</div>

@@ -1,0 +1,21 @@
+
+<div ng-show="loggedIn" ng-controller="vnavController">
+	<ul class="nav nav-pills  nav-stacked">
+		<li role="presentation" ng-class="{active : activeMenu === 'Files'}"><a
+			href="#home" ng-click="activeMenu = 'Files'">Upload Bulk Students
+		</a></li>
+		<li role="presentation" ng-class="{active : activeMenu === 'Queue'}"><a
+			href="#upload_queue" ng-click="activeMenu = 'Queue'">Uploaded Bulk
+				Queue</a></li>
+	</ul>
+</div>
+<div ng-show="!loggedIn" ng-controller="vnavController">
+	<ul class="nav nav-pills  nav-stacked">
+		<li role="presentation" ng-class="{active : activeMenu === 'Home'}"><a
+			href="#" ng-click="activeMenu = 'Home'">Login</a></li>
+		<li role="presentation"
+			ng-class="{active : activeMenu === 'Register'}"><a
+			href="#register" ng-click="activeMenu = 'Register'">Register</a></li>
+	</ul>
+</div>
+
